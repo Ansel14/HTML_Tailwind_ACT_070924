@@ -50,51 +50,64 @@
   .welcome__text h4 {
     @apply font-semibold text-primary pb-4;
   }
-  /* what we offer */
-  .offer {
-    @apply py-10 bg-tertiary text-white;
-  }
-  .offer h2 {
-    @apply text-3xl font-bold text-center;
-  }
-  .offer__tab {
-    @apply flex justify-center gap-4 py-10;
-  }
-  .offer__tab img {
-    @apply w-20;
-  }
-  .offer__tab img.active {
-    @apply border-2 p-1 border-secondary rounded-full;
-  }
-  .offer__foods {
-    @apply flex flex-col gap-4 justify-center items-center text-center py-10 border border-white rounded-xl;
-  }
-  .offer__foods img {
-    @apply w-32;
-  }
-  .offer__details--wrap {
-    @apply grid grid-cols-2 gap-3;
-  }
-  .offer__details {
-    @apply hidden
-    /* desktop */
-    lg:max-w-[50rem] lg:mx-auto;
-  }
-  .offer__details.active {
-    @apply block;
-  }
   /* about */
   .about {
     @apply pt-40;
   }
+  .about__wrapper {
+    @apply flex flex-col gap-16 items-center
+    /* desktop */
+    lg:flex-row lg:pb-16;
+  }
   .about__video iframe {
-    @apply w-96 h-72 mx-auto;
+    @apply w-96 h-72 mx-auto
+    /* desktop */
+    lg:w-[50rem] lg:h-[30rem];
   }
   .about__banner h1 {
     @apply text-5xl font-bold text-primary pt-10;
   }
   .about__banner p {
     @apply pt-4 pb-12;
+  }
+  /* our story */
+  .story {
+    @apply py-10;
+  }
+  .story__wrapper {
+    @apply py-1
+    /* desktop */
+    lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-32;
+  }
+  .story h3 {
+    @apply font-bold text-center text-4xl mb-5;
+  }
+  .story__content {
+    @apply text-justify pt-4;
+  }
+  .story__item {
+    @apply mb-5 max-w-[35rem] mx-auto;
+  }
+  .story__item h4,
+  .story__item i {
+    @apply bg-primary text-white px-3 py-2 font-bold flex justify-between items-center cursor-pointer;
+  }
+  .story__item i {
+    @apply duration-500;
+  }
+  .story__item i.open {
+    @apply rotate-180 duration-700;
+  }
+  .story__item p {
+    @apply bg-slate-50 h-auto max-h-0 overflow-hidden duration-300;
+  }
+  .story__item p.open {
+    @apply max-h-[50rem] bg-slate-50 p-3 ease-in-out duration-300;
+  }
+  .story__img img {
+    @apply hidden
+    /* desktop */
+    lg:block lg:rounded-3xl;
   }
   /* client feedback */
   .feedback {
@@ -107,16 +120,110 @@
     @apply text-center;
   }
   .feedback__card p {
-    @apply pb-4;
+    @apply pb-4 max-w-[40rem] 
+    /* desktop */
+    lg:mx-auto;
   }
   .feedback__card img {
-    @apply w-20 h-20 mx-auto rounded-full mb-4;
+    @apply w-20 h-20 rounded-full mb-4 mx-auto object-center object-cover;
   }
   .tns-outer {
-    @apply overflow-hidden max-w-[40rem] mx-auto;
+    @apply overflow-hidden mx-auto;
   }
   .tns-outer button {
     @apply hidden;
+  }
+  /* menu */
+  .menuBanner {
+    @apply pt-40 bg-menu bg-cover bg-left h-screen flex items-center justify-center;
+  }
+  .menuBanner__wrapper {
+    @apply flex justify-center;
+  }
+  .menuBanner__wrapper h1 {
+    @apply text-white text-3xl font-bold max-w-60
+    /* desktop */
+    lg:text-6xl lg:max-w-3xl lg:text-center;
+  }
+  /* menu tab */
+  .menuTab {
+    @apply py-12 bg-tertiary h-[850px];
+  }
+  .menuTab__wrapper {
+    @apply relative 
+    /* desktop */
+    lg:max-w-[49rem] lg:mx-auto;
+  }
+  .menuTab__tabs {
+    @apply flex justify-center gap-4 py-5 bg-secondary rounded-3xl
+    /* desktop */
+    lg:gap-12;
+  }
+  .menuTab__tabs h3 {
+    @apply text-tertiary font-bold cursor-pointer;
+  }
+  .menuTab__tabs h3.active {
+    @apply text-primary;
+  }
+  .menuTab__content {
+    @apply mt-12;
+  }
+  .menuTab__details--wrap {
+    @apply grid grid-cols-3 gap-8 justify-center items-center text-center
+    /* desktop */
+    lg:gap-4;
+  }
+  .menuTab__details {
+    @apply absolute duration-700 opacity-0 right-20;
+  }
+  .menuTab__details.active {
+    @apply duration-700 opacity-100 right-0;
+  }
+  .menuTab__foods {
+    @apply text-white mx-auto 
+    /* desktop */
+    lg:border lg:border-white lg:w-[15.5rem] lg:pb-8 lg:rounded-xl;
+  }
+  .menuTab__foods h4 {
+    @apply font-semibold text-xl;
+  }
+  .menuTab__foods img {
+    @apply w-40 py-4 mx-auto
+    /* desktop */
+    lg:w-32;
+  }
+  /* contact */
+  .map {
+    @apply pt-40 mb-12;
+  }
+  .map__wrapper iframe {
+    @apply mx-auto w-[28rem] h-[33rem]
+    /* desktop */
+    lg:w-[1000px] lg:h-[600px];
+  }
+  .contact {
+    @apply py-16 bg-secondary;
+  }
+  .contact__title h2 {
+    @apply text-center font-bold text-5xl pb-8;
+  }
+  .contact__form {
+    @apply flex flex-col items-center gap-4 w-[29rem]
+    /* desktop */
+    lg:w-[40rem] lg:mx-auto
+    ;
+  }
+  .contact__form input {
+    @apply p-2 rounded-xl w-[97%];
+  }
+  .contact__form textarea {
+    @apply p-2 rounded-xl h-32 w-[97%];
+  }
+  .fullName {
+    @apply flex justify-between items-center gap-4 w-[97%];
+  }
+  .contact__button {
+    @apply mx-auto pt-4;
   }
 }
 @layer components {
@@ -155,7 +262,7 @@
   .toggle__menu.open span {
     @apply w-7 ease-in-out duration-700;
   }
-  .toggle_menu.open span:last-child {
+  .toggle__menu.open span:last-child {
     @apply w-10 ease-in-out duration-700;
   }
   /* backdrop */
@@ -169,9 +276,43 @@
   }
   /* Announcement */
   .announce {
-    @apply fixed w-full z-10 bg-white/85 pt-28 pb-1 text-center font-semibold text-primary leading-3;
+    @apply fixed w-full z-10 bg-white/85 pt-28 pb-1 text-center font-semibold text-primary leading-3
+    /* deesktop */
+    lg:pt-[7.3rem];
   }
-
+  /* what we offer */
+  .offer {
+    @apply py-10 bg-tertiary text-white;
+  }
+  .offer h2 {
+    @apply text-3xl font-bold text-center;
+  }
+  .offer__tab {
+    @apply flex justify-center gap-4 py-10;
+  }
+  .offer__tab img {
+    @apply w-20 cursor-pointer;
+  }
+  .offer__tab img.active {
+    @apply border-2 p-1 border-secondary rounded-full;
+  }
+  .offer__foods {
+    @apply flex flex-col gap-4 justify-center items-center text-center py-10 border border-white rounded-xl;
+  }
+  .offer__foods img {
+    @apply w-32;
+  }
+  .offer__details--wrap {
+    @apply grid grid-cols-2 gap-3;
+  }
+  .offer__details {
+    @apply hidden
+    /* desktop */
+    lg:max-w-[50rem] lg:mx-auto;
+  }
+  .offer__details.active {
+    @apply block;
+  }
   /* connect */
   .connect {
     @apply bg-primary text-white py-10
